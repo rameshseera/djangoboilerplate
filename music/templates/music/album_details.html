@@ -1,0 +1,20 @@
+{% extends 'music/header.html' %}
+{% block title%}
+ Album Details
+{% endblock %}
+
+{% block content%}
+    {% if album %}
+        <pre>
+        Album ID : {{ album.id}}
+        Album Name:  {{ album.title }}
+        </pre>
+        <ui>
+        {% for song in songs %}
+            <li> <a href="{% url 'music:song_details' song.id %}"> {{ song }} </a> </li>
+        {% endfor %}
+        </ui>
+    {% else %}
+        <H3> No right Album passed.  </H3>
+    {% endif %}
+{% endblock %}
